@@ -13,7 +13,7 @@ class Counter extends Component {
 
   handleIncrement = () => {
     // arrow function inherit 'this'
-    console.log("handling clickd", this); // bind event handler to 'this'
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
