@@ -18,6 +18,16 @@ class Counters extends Component {
     this.setState({ counters });
   };
 
+  handleIncrement = counter => {
+    // console.log(counter);
+    //create new counters array
+    const counters = [...this.state.counters]; // new array of counters (clone)
+    const index = counters.indexOf(counter);
+    counters[index] = counter;
+    counters[index].value++;
+    this.setState({ counters });
+  };
+
   handleReset = () => {
     const counters = this.state.counters.map(c => {
       c.value = 0;
@@ -39,6 +49,7 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete} //pass reference to function handleDelete
+            onIncrement={this.handleIncrement}
             // value={counter.value}
             // id={counter.id}
             counter={counter} // encaps. contains the two above fields and more field that may be added during dev
