@@ -13,6 +13,19 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log("app-constructor");
+    // this.state = this.props.something
+  }
+
+  //called after the component is rendered into the DOM - perfect place to make AJAX call and get data from the server
+  componentDidMount() {
+    //AJAX call
+    // this.setState({movies})
+    console.log("app - Mounted");
+  }
+
   handleDelete = counterId => {
     console.log("Event Handler Called", counterId);
     //update the state (we are not going to remove the counter from the array in the 'state')
@@ -40,6 +53,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("app - Rendered");
     return (
       <React.Fragment>
         <NavBar
