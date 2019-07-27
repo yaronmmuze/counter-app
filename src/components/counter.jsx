@@ -1,6 +1,21 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+  // life cycle hook
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      console.log("ajax call and get new data from the server");
+    }
+  }
+
+  componentWillUnmount() {
+    // as a result of deleting a counter -> the state of app component is changed
+    // the entire component tree is re-rendered -> new virtual DOM with one less counter
+    console.log("counter - unmount");
+    // clean up before this removed from the DOM
+  }
   render() {
     // console.log("props", this.props);
     console.log("counter - rendered");
